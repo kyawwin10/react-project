@@ -1,0 +1,515 @@
+#sales_form_body {
+  margin: 30px;
+}
+
+.sales_form_header {
+  margin: 30px;
+}
+
+.total {
+  float: right;
+  margin-right: 102px;
+  font-weight: 700;
+}
+
+.total_amt {
+  float: right;
+  margin-right: 102px;
+  font-weight: 600;
+}
+
+.total_amount {
+  float: right;
+  margin-right: 50px;
+  font-weight: 600;
+}
+
+.save_buttom {
+  margin-top: 40px;
+  width: 70px;
+  height: 40px;
+}
+
+.list {
+  padding: 20px 20px;
+}
+
+.list_table {
+  width: 75%;
+  float: auto;
+}
+
+.input {
+  width: 50px;
+  height: 50px;
+  padding: 20px 50px;
+}
+
+.stock_home {
+  margin: 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list_header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.list_one {
+  width: 10%;
+  margin: 22px;
+  font-weight: bold;
+}
+
+.list_two {
+  margin-top: 30px;
+  width: 42%;
+  height: 5%;
+  margin-right: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.list_three {
+  height: 35px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 30px;
+  margin-right: 20px;
+}
+
+.tb_style {
+  margin: 22px;
+}
+
+.table_style {
+  margin: 30px;
+}
+
+.table_update {
+  margin: 30px;
+}
+
+@media screen and (max-width: 767px) {
+  table thead {
+    display: none;
+  }
+  .button_on {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 43px;
+  }
+  .button_off {
+    margin-bottom: 5px;
+  }
+
+  td {
+    height: 22px;
+  }
+
+  th::before {
+    content: attr(data-cell);
+    display: block;
+    font-size: 13px;
+    color: rgba(5, 57, 94, 0.7);
+    font-weight: 700;
+  }
+  td::before {
+    content: attr(data-cell);
+    display: block;
+    font-size: 13px;
+    color: rgba(5, 57, 94, 0.7);
+    font-weight: 700;
+  }
+  td {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+  }
+  th {
+    display: none;
+  }
+  tr {
+    float: left;
+    box-shadow: 0px 4px 20px rgba(5, 57, 94, 0.5);
+    -moz-box-shadow: 0px 4px 20px rgba(5, 57, 94, 0.5);
+    -webkit-box-shadow: 0px 4px 20px rgba(5, 57, 94, 0.5);
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .input_form_style {
+    float: right;
+    width: 150px;
+    border: 1px solid white;
+    border-radius: 8px;
+  }
+}
+
+th,
+td {
+  padding: 1rem;
+}
+
+.saleinvoice_list_body {
+  width: 100%;
+}
+
+.export_import_design {
+  width: 30%;
+  height: 5%;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.print_design {
+  display: flex;
+  justify-content: center;
+}
+
+.printme {
+  float: right;
+}
+
+.table-center {
+  margin-left: 8.5%;
+  margin-right: 15%;
+}
+
+.price {
+  text-align: end;
+}
+.quantity {
+  text-align: end;
+}
+.amount {
+  text-align: end;
+}
+
+.pagination-body {
+  width: 4.5%;
+  height: 35px;
+  margin-right: 10px;
+  background-color: rgb(175, 188, 166);
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: center;
+}
+
+.login_respon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form_login {
+  margin: auto;
+  height: 660px;
+  width: 400px;
+  border-radius: 20px;
+}
+
+.buttom_des {
+  margin-bottom: 15px;
+  margin-left: 10px;
+  width: 92%;
+  border-radius: 50x;
+  background-color: rgb(76, 8, 246);
+}
+
+.buttom_design {
+  margin-top: 45px;
+  margin-left: 10px;
+  height: 50px;
+  width: 92%;
+  border: 1px solid;
+  border-radius: 70x;
+  background-color: rgb(76, 8, 246);
+}
+
+.img_design {
+  margin-left: 15px;
+  float: left;
+  padding-top: 5px;
+}
+
+.form-control {
+  color: rgba(0, 0, 0, 0.87);
+  border-bottom-color: rgba(0, 0, 0, 0.42);
+  box-shadow: none !important;
+  border: none;
+  border-bottom: 1px solid black;
+  border-radius: 4px 0;
+}
+
+h4 {
+  font-size: 2rem !important;
+  font-weight: 700;
+}
+
+.form-label {
+  font-family: 700 !important;
+}
+
+.input_box {
+  display: flex;
+  flex-direction: row;
+}
+
+.eye_box {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.icon {
+  margin: 10px;
+  color: gray;
+}
+
+.icon_plus {
+  color: gray;
+  text-align: end;
+  margin-right: 8px;
+  margin-top: 9px;
+  margin-bottom: 4px;
+  background: none;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  columns: #fff;
+  border-bottom: 1px solid rgb(228, 222, 222);
+}
+
+.input_form {
+  color: rgb(161, 149, 149);
+  width: 84%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  columns: #fff;
+  border-bottom: 1px solid rgb(228, 222, 222);
+}
+
+.input_pass {
+  color: rgb(161, 149, 149);
+  width: 80%;
+  height: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  columns: #fff;
+  border-bottom: 1px solid rgb(228, 222, 222);
+}
+
+.but_leader {
+  margin-left: 20px;
+}
+
+.or_head {
+  width: 90%;
+  padding-left: 35px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+.or_style {
+  margin: 0px 18px;
+}
+
+.or_des {
+  width: 50%;
+  margin-bottom: 10px;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1em;
+  columns: #fff;
+  border-bottom: 1px solid rgb(228, 222, 222);
+}
+
+.register_des {
+  margin-top: 35px;
+  text-align: center;
+  color: rgb(161, 149, 149);
+  font-weight: 500;
+}
+
+.head_body {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 2%;
+}
+
+.update_head {
+  width: 50%;
+  margin: 30px;
+}
+
+.cus_pro {
+  width: 60%;
+  margin: 30px;
+}
+
+.fileupload {
+  width: 50%;
+  margin: 30px;
+}
+
+.profile_photo {
+  width: 40%;
+  margin: 23px;
+}
+
+.customer_upd_form {
+  margin: 0px 30px;
+}
+
+.avatar {
+  border-radius: 50px;
+}
+
+.mother {
+  width: 100%;
+  background-color: blue;
+}
+
+.dashboard_design {
+  height: 38px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.logocontainer {
+  height: 50px;
+  margin-left: 7px;
+}
+
+.logo {
+  margin: 4px;
+  margin-left: 10px;
+  height: 28px;
+  border-radius: 40px;
+}
+
+.dashboard_nav {
+  width: 40%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.nav_home {
+  margin-right: 10px;
+}
+
+.nav_sales {
+  margin-right: 10px;
+}
+
+.nav_customer {
+  margin-right: 15px;
+}
+
+.dashboard_dropdown {
+  margin-right: 12px;
+  display: flex;
+  flex-direction: row;
+}
+
+.style {
+  width: 96%;
+  margin: 2%;
+}
+
+.head_profile {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.customer_cre {
+  margin: 2%;
+}
+
+.update_button {
+  width: 6%;
+  height: 6%;
+  margin: 1%;
+}
+
+.customer_head_profile {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.mains_large {
+  padding: 20px;
+}
+
+.customer_header {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.customer_title {
+  width: 50%;
+  font-size: medium;
+  font-weight: 600;
+}
+
+.add_search {
+  width: 52%;
+  margin-left: 5px;
+  display: flex;
+  flex-direction: row;
+}
+
+.drop {
+  height: 0.1%;
+}
+
+.father {
+  margin: 4%;
+}
+
+.dashboard_nav.hidden {
+  display: none;
+}
+
+.dashboard_nav.visible {
+  display: block;
+}
+
+.sales_display {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+/* Optional: add some transition for a smoother effect */
+.dashboard_nav {
+  transition: all 0.3s ease-in-out;
+}
+
+.image_container {
+  margin-left: 110px;
+}
