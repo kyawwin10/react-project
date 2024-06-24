@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { axiosInstance } from "../api/AxiosInstance";
-import { CButton, CCol, CFormInput, CRow } from "@coreui/react";
+import { CButton } from "@coreui/react";
 import { useParams } from "react-router";
 import "primeicons/primeicons.css";
-import Dashboard from "../dashboard/Dashboard";
-import { Table } from "react-bootstrap";
+import "../detail/detail.css";
 
 const Detail = () => {
   const { id } = useParams();
@@ -70,112 +69,109 @@ const Detail = () => {
     showData();
   }, [id]);
 
+  // const printClick = () => {
+  //   window.print(onpagehide);
+  // };
+
   const printClick = () => {
+    const divToHide = document.querySelector(".divToHide");
+    divToHide.classList.add("hidden"); // Hide the div
     window.print();
+    divToHide.classList.remove("hidden"); // Show the div again after printing
   };
 
   return (
     <>
-      <Dashboard />
+      <div className="divToHide">
+        <a href="/salesinvoicelist">Sales Invoice List</a>
+        <CButton onClick={printClick} className="pi pi-print" />
+        <hr />
+      </div>
+
       <div className="print_design mt-2">
-        <h4>Sales Invoice Voucher</h4>
-        <CButton onClick={printClick} className="btn pi pi-print printme" />
+        <h5>Thanks for Your Purchase</h5>
       </div>
 
       {/* <CButton onClick={printClick}>Print</CButton> */}
       <div className="father">
-        <div className="row mt-3">
-          <div className="col-md-1"></div>
-          <div className="col-md-4">
-            <p>
-              <span>Customer : {customer}</span>
-            </p>
+        <div>
+          <p>
+            <i className="pi pi-user"></i>&nbsp;
+            {customer}
+          </p>
 
-            <p>
-              <span>Phone : {phone}</span>
-            </p>
+          <p>
+            <i className="pi pi-phone"></i>&nbsp;
+            {phone}
+          </p>
 
-            <p>
-              <span>Email : {email}</span>
-            </p>
+          <p>
+            <i className="pi pi-building-columns"></i>&nbsp;
+            {address}
+          </p>
+        </div>
 
-            <p>
-              <span>Address : {address}</span>
-            </p>
-          </div>
-          <div className="col-md-1"></div>
+        <div>
+          <p>ID : {invoiceId}</p>
 
-          <div className="col-md-1"></div>
-          <div className="col-md-4">
-            <p>
-              <span>Invoice ID : {invoiceId}</span>
-            </p>
+          <p>No. : {invoiceNo}</p>
 
-            <p>
-              <span>Invoice No. : {invoiceNo}</span>
-            </p>
-
-            <p>
-              <span>Invoice Date : {invoiceDate}</span>
-            </p>
-          </div>
-          <div className="col-md-1"></div>
+          <p>Date : {invoiceDate}</p>
         </div>
       </div>
+      <p style={{ padding: "0px 15px" }}>
+        <i className="pi pi-envelope"></i>&nbsp;
+        {email}
+      </p>
 
-      <div className="table-center">
-        <CRow>
-          <CCol>
-            <Table
-              responsive
-              className="table table-bordered border-dark table-striped"
-            >
-              <thead className="table table-dark">
-                <tr>
-                  <th scope="col">Code</th>
-                  <th scope="col">Description</th>
-                  <th scope="col">Price</th>
-                  <th scope="col">Quantity</th>
-                  <th scope="col">Amount</th>
-                </tr>
-              </thead>
-              <tbody className="text-center">
-                {value.map((data, index) => (
-                  <tr key={index}>
-                    <td data-cell="Code">
-                      <span>{data.code}</span>
-                    </td>
-                    <td data-cell="Description">
-                      <span>{data.description}</span>
-                    </td>
+      <div className="table_lead">
+        <table className="tax table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Code</th>
+              <th scope="col">Description</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col" colSpan={5}>
+                Amount
+              </th>
+            </tr>
+          </thead>
 
-                    <td data-cell="Price">
-                      <span>{data.price}</span>
-                    </td>
-                    <td data-cell="Quantity">
-                      <span>{data.quantity}</span>
-                    </td>
-                    <td data-cell="Amount">
-                      <span>
-                        {data.amount.toLocaleString("en-US", {
-                          minimumFractionDigits: 0,
-                        })}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-              {/* <tfoot>
-                <tr>
-                  <td colSpan={5}></td>
-                </tr>
-              </tfoot> */}
-            </Table>
-          </CCol>
-        </CRow>
-        <div className="text-center total_amount">
-          Total Amount : {totalAmount()}
-        </div>
+          <tbody>
+            {value.map((data, index) => (
+              <tr key={index}>
+                <td data-cell="Code">
+                  <span>{data.code}</span>
+                </td>
+                <td data-cell="Description">
+                  <span>{data.description}</span>
+                </td>
+
+                <td data-cell="Price">
+                  <span>{data.price}</span>
+                </td>
+                <td data-cell="Quantity">
+                  <span>{data.quantity}</span>
+                </td>
+                <td data-cell="Amount">
+                  <span>
+                    {data.amount.toLocaleString("en-US", {
+                      minimumFractionDigits: 0,
+                    })}
+                  </span>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colSpan={5} style={{ textAlign: "left" }}>
+                Total : {totalAmount()}
+              </td>
+            </tr>
+          </tfoot>
+        </table>
       </div>
     </>
   );

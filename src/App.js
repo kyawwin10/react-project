@@ -8,7 +8,6 @@ import { Toaster } from "react-hot-toast";
 import UpdateSales from "./updatesales/UpdateSales";
 import Detail from "./detail/Detail";
 import Login from "./login/Login";
-import Dashboard from "./dashboard/Dashboard";
 import Profile from "./profile/Profile";
 import CustomerList from "./customer_list/CustomerList";
 import Customer from "./customer/Customer";
@@ -23,7 +22,6 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route element={<Protected />}>
-            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/home" element={<ChartApex />} />
             <Route path="/salesinvoice" element={<Sales_Invoice />} />
             <Route path="/salesinvoicelist" element={<SalesInvoiceList />} />

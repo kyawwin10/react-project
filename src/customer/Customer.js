@@ -99,6 +99,7 @@ const Customer = () => {
 
   const saveClick = async () => {
     const customerData = {
+      id: allUserData.length + 1,
       name,
       email,
       phone,
@@ -154,16 +155,27 @@ const Customer = () => {
   return (
     <>
       <Dashboard />
-      <div className="customer_head_profile">
-        <div className="cus_pro">
-          <p>Customer</p>
-        </div>
-
+      <div className="cus_pro">
+        <p>Customer</p>
+      </div>
+      {/* <div className="customer_head_profile">
         <div className="profile_photo">
           <CFormInput
             type="file"
             onChange={(e) => setProfile(e.target.files[0])}
           />
+        </div>
+        <CButton>Upload</CButton>
+      </div> */}
+      <div className="upload">
+        <img src="img/p13.png" style={{ width: "100px", height: "100px" }} />
+        <div className="round">
+          <input
+            type="file"
+            className="file_upload"
+            onChange={(e) => setProfile(e.target.files[0])}
+          />
+          <i className="pi pi-camera"></i>
         </div>
       </div>
 
@@ -245,7 +257,7 @@ const Customer = () => {
         </CRow>
       </div>
 
-      <div style={{ marginLeft: "30px" }}>
+      <div style={{ marginLeft: "40px" }}>
         {offline ? (
           <CButton
             className="btn btn-success save_buttom"

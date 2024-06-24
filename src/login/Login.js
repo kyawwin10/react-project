@@ -17,7 +17,7 @@ const Login = () => {
   console.log(token);
   useEffect(() => {
     if (token) {
-      navigate("/dashboard");
+      navigate("/home");
     }
   }, [token, navigate]);
 
@@ -41,7 +41,7 @@ const Login = () => {
       path: "",
     });
 
-    navigate(`/dashboard`);
+    navigate(`/home`);
     toast.success(loginData.data.message);
     console.log(loginData.data);
   };
@@ -51,7 +51,7 @@ const Login = () => {
       <div className="login_respon">
         <form className="form_login">
           <img
-            className="image_container mt-4"
+            className="image_container mt-5"
             src="/img/p10.png"
             width={160}
             height={100}
@@ -108,14 +108,14 @@ const Login = () => {
               </p>
 
               <CButton
-                className="btn btn-primary mt-3 buttom_des"
+                className="btn btn-primary mt-4 buttom_des"
                 onClick={loginClick}
                 onKeyDown={keyEnter}
               >
                 Login
               </CButton>
 
-              <div className="or_head mt-3">
+              <div className="or_head mt-4">
                 <div className="or_des"></div>
 
                 <div className="or_style">OR</div>

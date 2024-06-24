@@ -2,8 +2,8 @@ import { CButton, CCol, CFormInput, CFormLabel, CRow } from "@coreui/react";
 import React, { useEffect, useState } from "react";
 import { axiosInstance } from "../api/AxiosInstance";
 import { useParams } from "react-router";
-import toast from "react-hot-toast";
 import Dashboard from "../dashboard/Dashboard";
+import Swal from "sweetalert2";
 
 const CustomerUpdate = () => {
   const { id } = useParams();
@@ -29,8 +29,11 @@ const CustomerUpdate = () => {
         setEmail(customer_email);
         setPhone(customer_phone);
         setAddress(customer_address);
-        setProfile(profile_image);
-        console.log(res.data.data);
+        setProfile(
+          profile_image
+            ? "https://crudinvoicepostgresql.onrender.com" + profile_image
+            : "img/p7.jpg"
+        );
       }
     };
     console.log(updateData);
@@ -38,6 +41,18 @@ const CustomerUpdate = () => {
   }, [id]);
 
   const updateClick = async () => {
+    Swal.fire({
+      title: "Do you want to Update?",
+      showCancelButton: true,
+      confirmButtonText: "Update",
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire("Update!", "", "success");
+      } else if (result.isDenied) {
+        Swal.fire("Changes are not updated", "", "info");
+      }
+    });
     let formData = new FormData();
     formData.append("edit_customer_name", name);
     formData.append("edit_customer_email", email);
@@ -54,8 +69,6 @@ const CustomerUpdate = () => {
           },
         }
       );
-      toast.success(response.data.message);
-      console.log(response);
       setName("");
       setEmail("");
       setPhone("");
@@ -70,18 +83,48 @@ const CustomerUpdate = () => {
     <>
       <Dashboard />
 
-      <div className="head_profile">
-        <div className="update_head">
-          <p>Customer Update</p>
-        </div>
+      <div className="update_head">
+        <p>Customer Update</p>
+      </div>
 
-        <div className="fileupload">
-          <CFormInput
+      <div className="upload">
+        <img src={profile} style={{ width: "90px", height: "90px" }} />
+        <div className="round">
+          <input
             type="file"
-            onChange={(e) => setProfile(e.target.files[0])}
+            className="file_upload"
+            onChange={(e) => {
+              const file = e.target.files[0];
+              setProfile(URL.createObjectURL(file));
+            }}
           />
+
+          <i className="pi pi-camera"></i>
         </div>
       </div>
+
+      {/* <div className="fileupload">
+          <input
+            type="file"
+            id="actual-btn"
+            hidden
+            onChange={(e) => setProfile(e.target.files[0])}
+          />
+          <label htmlFor="actual-btn" className="btn btn-info upload_button">
+            Upload
+          </label>
+          {profile && <p>{profile.name}</p>}
+        </div> */}
+
+      {/* <div className="fileupload">
+          <input type="file" id="actual-btn" hidden />
+
+          <label className="upload_button">Upload File</label>
+        </div> */}
+
+      {/* <div className="head_profile">
+        
+      </div> */}
 
       <div className="card-body customer_upd_form mt-4">
         <CRow className="mt-2">
@@ -146,7 +189,7 @@ const CustomerUpdate = () => {
         </CRow>
       </div>
 
-      <div style={{ marginLeft: "30px" }}>
+      <div style={{ marginLeft: "40px" }}>
         <CButton className="btn btn-info save_buttom" onClick={updateClick}>
           Update
         </CButton>

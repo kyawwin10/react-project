@@ -1,0 +1,166 @@
+/* @media screen {
+  .table-center {
+    display: block;
+    background-color: rgb(10, 132, 239);
+  }
+  .table-center table thead {
+    display: block;
+  }
+  .table-center th {
+    border: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+    float: left;
+    padding: 0px 5px;
+  }
+} */
+.table_lead {
+  padding: 0px 300px;
+  height: 400px;
+}
+.tax {
+  box-shadow: 0px 0px 15px rgba(206, 197, 197, 0.8);
+  width: 100%;
+  border-radius: 15px;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.tax thead {
+  text-align: left;
+  border-bottom: 1px dashed black;
+}
+.tax tbody {
+  text-align: left;
+  border-bottom: 1px dashed black;
+}
+@media screen and (max-width: 750px) {
+  .table_lead {
+    padding: 10px;
+  }
+  .tax thead tr,
+  .tax tbody tr,
+  .tax tfoot tr {
+    box-shadow: none;
+  }
+  .tax {
+    box-shadow: 0px 0px 15px rgba(206, 197, 197, 0.8);
+    width: 100%;
+    border-radius: 15px;
+    border: none;
+    margin-bottom: 20px;
+  }
+
+  .tax thead {
+    text-align: left;
+    border-bottom: 1px dashed black;
+  }
+  .tax tbody {
+    text-align: left;
+    border-bottom: 1px dashed black;
+  }
+  /* .tax {
+    width: 100%;
+  }
+  .tax thead tr,
+  .tax tbody tr,
+  .tax tfoot tr {
+    box-shadow: none;
+  }
+  .tax thead {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+
+  .tax thead th {
+    font-weight: bold;
+    color: #333;
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .tax tbody td {
+    text-align: left;
+    color: #555;
+    position: relative; 
+    padding-left: 50%;
+  }
+
+  .tax tbody td::before {
+    content: attr(data-label); 
+    position: absolute;
+    left: 0;
+    width: 45%; 
+    padding-left: 10px; 
+    font-weight: bold; 
+    white-space: nowrap;
+    color: #333; 
+  }
+
+  .tax tfoot td {
+    text-align: left;
+    color: #555;
+  } */
+}
+
+/* Table Styling */
+
+/* .card {
+  border: none;
+  padding: 0px 20px;
+}
+
+.tax {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 1em;
+  text-align: left;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.tax th,
+.tax td {
+  padding: 12px 15px;
+}
+
+.tax thead tr {
+  background-color: #009879;
+  color: #ffffff;
+  text-align: left;
+}
+
+.tax tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.tax tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.tax tbody tr:last-of-type {
+  border-bottom: 2px solid #009879;
+}
+
+.tax tfoot tr {
+  background-color: #f3f3f3;
+  font-weight: bold;
+}
+
+.tax tfoot td {
+  padding: 10px 15px;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.table-striped tbody tr:nth-of-type(even) {
+  background-color: rgba(0, 0, 0, 0.02);
+} */

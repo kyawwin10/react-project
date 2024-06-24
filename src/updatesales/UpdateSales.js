@@ -6,6 +6,7 @@ import { axiosInstance } from "../api/AxiosInstance";
 import { useParams } from "react-router";
 import Dashboard from "../dashboard/Dashboard";
 import { Table } from "react-bootstrap";
+import Swal from "sweetalert2";
 
 const UpdateSales = () => {
   const { id } = useParams();
@@ -104,7 +105,18 @@ const UpdateSales = () => {
       stock_data: stockItems,
       total_amount: totalAmount(),
     });
-    toast.success(updateData.data.message);
+    Swal.fire({
+      title: "Do you want to Update?",
+      showCancelButton: true,
+      confirmButtonText: "Update",
+    }).then((result) => {
+      /* Read more about isConfirmed, isDenied below */
+      if (result.isConfirmed) {
+        Swal.fire("Update!", "", "success");
+      } else if (result.isDenied) {
+        Swal.fire("Changes are not updated", "", "info");
+      }
+    });
     console.log(updateData);
   };
 
@@ -181,7 +193,7 @@ const UpdateSales = () => {
     <>
       <Dashboard />
       <h5 className="sales_form_header">Sales Invoice Update</h5>
-      <div className="mb-6">
+      <div className="mb-2">
         <div id="sales_form_body">
           <CRow>
             <CCol lg="6">
@@ -261,7 +273,7 @@ const UpdateSales = () => {
       <div className="table_update">
         <CRow className="mt-2">
           <CCol>
-            <Table responsive className="table table-bordered table-striped">
+            <table className="main_border">
               <thead className="table table-info">
                 <tr>
                   <th scope="col">Code</th>
@@ -320,7 +332,7 @@ const UpdateSales = () => {
                           })}
                         </span>
                       </td>
-                      <td data-cell="Remove">
+                      <td className="button_x">
                         <CButton
                           className="btn btn-sm btn-danger"
                           onClick={() => xClick(data.stockId)}
@@ -332,7 +344,7 @@ const UpdateSales = () => {
                   );
                 })}
               </tbody>
-            </Table>
+            </table>
           </CCol>
         </CRow>
         <div className="total mt-2">Total Amount : {totalAmount()}</div>

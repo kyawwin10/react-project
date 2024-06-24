@@ -146,7 +146,7 @@ const Sales_Invoice = () => {
         <Dashboard />
         <h5 className="sales_form_header">Sales Invoice</h5>
 
-        <div className="card-body" id="sales_form_body">
+        <div id="sales_form_body">
           <CRow>
             <CCol lg="6">
               <CRow>
@@ -226,7 +226,7 @@ const Sales_Invoice = () => {
       <div className="card-body table_style">
         <CRow>
           <CCol>
-            <table className="table table-bordered table-striped">
+            <table className="main_border table-striped">
               <thead className="table table-info">
                 <tr>
                   <th scope="col">Code</th>
@@ -284,16 +284,16 @@ const Sales_Invoice = () => {
                         />
                       </td>
 
-                      <td data-cell="Amount" className="amount">
-                        <span>
+                      <td data-cell="Amount">
+                        <span className="amount">
                           {data.amount.toLocaleString("en-US", {
                             minimumFractionDigits: 0,
                           })}
                         </span>
                       </td>
-                      <td>
+                      <td className="button_x">
                         <CButton
-                          className="btn btn-sm btn-danger"
+                          className="btn btn-danger"
                           onClick={() => xClick(data.id)}
                         >
                           X

@@ -48,6 +48,7 @@ const Profile = () => {
               src={`https://crudinvoicepostgresql.onrender.com${profile_image}`}
               width={75}
               height={60}
+              style={{ borderRadius: "60px" }}
             />
           </h4>
 
