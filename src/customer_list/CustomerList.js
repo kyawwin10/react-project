@@ -57,23 +57,9 @@ const CustomerList = () => {
   };
 
   const delClick = async (id) => {
-    Swal.fire({
-      title: "Are you sure want to Delete?",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
-          icon: "success",
-        });
-      }
-    });
     const delData = await axiosInstance.delete(`/api/customer/delete/${id}`);
+    toast.success(delData.data.message);
+    window.location.reload();
   };
 
   const plusClick = () => {
@@ -288,9 +274,13 @@ const CustomerList = () => {
                     <td data-cell="Address">{data.customer_address}</td>
                     <td data-cell="Proifile_Image">
                       <img
-                        src={`https://crudinvoicepostgresql.onrender.com${data.profile_image}`}
-                        width={16}
-                        height={16}
+                        src={`https://crudinvoicepostgresql.onrender.com${
+                          data.profile_image
+                            ? data.profile_image
+                            : "/uploads/default.png"
+                        }`}
+                        width={20}
+                        height={20}
                         style={{ borderRadius: "50px" }}
                       />
                     </td>

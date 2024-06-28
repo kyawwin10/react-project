@@ -3,13 +3,13 @@ import toast from "react-hot-toast";
 import { CButton, CCol, CFormInput, CFormLabel, CRow } from "@coreui/react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { axiosInstance } from "../api/AxiosInstance";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Dashboard from "../dashboard/Dashboard";
-import { Table } from "react-bootstrap";
-import Swal from "sweetalert2";
 
 const UpdateSales = () => {
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   const [customer, setCustomer] = useState("");
   const [phone, setPhone] = useState("");
@@ -105,18 +105,8 @@ const UpdateSales = () => {
       stock_data: stockItems,
       total_amount: totalAmount(),
     });
-    Swal.fire({
-      title: "Do you want to Update?",
-      showCancelButton: true,
-      confirmButtonText: "Update",
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        Swal.fire("Update!", "", "success");
-      } else if (result.isDenied) {
-        Swal.fire("Changes are not updated", "", "info");
-      }
-    });
+    toast.success(updateData.data.message);
+    navigate(`/salesinvoicelist`);
     console.log(updateData);
   };
 
@@ -300,6 +290,7 @@ const UpdateSales = () => {
                       </td>
                       <td data-cell="Description">
                         <input
+                          form="control"
                           type="text"
                           className="input_form_style"
                           value={data.description}

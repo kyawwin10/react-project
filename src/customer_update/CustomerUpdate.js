@@ -1,12 +1,13 @@
 import { CButton, CCol, CFormInput, CFormLabel, CRow } from "@coreui/react";
 import React, { useEffect, useState } from "react";
 import { axiosInstance } from "../api/AxiosInstance";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import Dashboard from "../dashboard/Dashboard";
-import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const CustomerUpdate = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -41,18 +42,6 @@ const CustomerUpdate = () => {
   }, [id]);
 
   const updateClick = async () => {
-    Swal.fire({
-      title: "Do you want to Update?",
-      showCancelButton: true,
-      confirmButtonText: "Update",
-    }).then((result) => {
-      /* Read more about isConfirmed, isDenied below */
-      if (result.isConfirmed) {
-        Swal.fire("Update!", "", "success");
-      } else if (result.isDenied) {
-        Swal.fire("Changes are not updated", "", "info");
-      }
-    });
     let formData = new FormData();
     formData.append("edit_customer_name", name);
     formData.append("edit_customer_email", email);
@@ -69,6 +58,8 @@ const CustomerUpdate = () => {
           },
         }
       );
+      toast.success(response.data.message);
+      navigate(`/salesinvoicelist`);
       setName("");
       setEmail("");
       setPhone("");
